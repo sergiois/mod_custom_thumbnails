@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" method="upgrade" client="site">
+	<name>mod_custom_thumbnails</name>
+	<creationDate>Nov 2016</creationDate>
+	<author>Sergio Iglesias</author>
+	<authorEmail>info@sergioiglesias.net</authorEmail>
+	<authorUrl>https://sergioiglesias.net</authorUrl>
+	<copyright>Copyright © 2016 - All rights reserved.</copyright>
+	<license>GNU General Public License v2.0</license>
+	<version>1.0.0</version>
+	<description>MOD__P_HTML_CONTENT_IN_BOOTSTRAP</description>
+	<files>
+		<filename module="mod_custom_thumbnails">mod_custom_thumbnails.php</filename>
+		<filename>mod_custom_thumbnails.xml</filename>
+		<filename>index.html</filename>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="count"
+					type="list"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_COUNT_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_COUNT_DESC"
+					default="3"
+					>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</field>
+
+				<field
+					name="templateframework"
+					type="list"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_TEMPLATE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_TEMPLATE_DESC"
+					default="1"
+					>
+					<option value="1">Bootstrap 2.3.2</option>
+					<option value="2">Bootstrap 3</option>
+					<option value="3">UiKit</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="configuration">
+				<field type="spacer" name="contentspacer1" class="text"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_SPACER1"
+					/>
+				
+				<field
+					name="title1"
+					type="text"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_TITLE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_TITLE_DESC"
+				/>
+				<field
+					name="image1"
+					type="media"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_IMAGE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_IMAGE_DESC"
+					directory=""
+				/>
+				<field
+					name="content1"
+					type="editor"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_CONTENT_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_CONTENT_DESC"
+					filter="safehtml"
+				/>
+				<field
+					name="url1"
+					type="list"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_SELECTION_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_SELECTION_URL_DESC"
+					default="no"
+					>
+					<option value="no">MOD_CUSTOM_THUMBNAILS_OPTION_NO_VALUE</option>
+					<option value="external">MOD_CUSTOM_THUMBNAILS_OPTION_EXTERNAL_VALUE</option>
+					<option value="internal">MOD_CUSTOM_THUMBNAILS_OPTION_INTERNAL_VALUE</option>
+				</field>
+				<field
+					name="urlexternal1"
+					type="url"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_EXTERNAL_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_EXTERNAL_URL_DESC"
+					showon="url1:external"
+				/>
+				<field
+					name="urlinternal1"
+					type="menuitem"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_INTERNAL_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_INTERNAL_URL_DESC"
+					showon="url1:internal"
+				/>
+				<field
+					name="show_readmore1"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_SELECTION_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_SELECTION_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url1:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field
+					name="readmore_text1"
+					type="text"
+					default=""
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_DESC"
+					showon="show_readmore1:1"
+				/>
+				<field
+					name="link_title1"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_TITLE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_TITLE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url1:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="link_image1"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_IMAGE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_IMAGE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url1:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field type="spacer" name="contentspacer2" class="text"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_SPACER2"
+					/>
+				
+				<field
+					name="title2"
+					type="text"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_TITLE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_TITLE_DESC"
+				/>
+				<field
+					name="image2"
+					type="media"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_IMAGE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_IMAGE_DESC"
+					directory=""
+				/>
+				<field
+					name="content2"
+					type="editor"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_CONTENT_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_CONTENT_DESC"
+					filter="safehtml"
+				/>
+				<field
+					name="url2"
+					type="list"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_SELECTION_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_SELECTION_URL_DESC"
+					default="no"
+					>
+					<option value="no">MOD_CUSTOM_THUMBNAILS_OPTION_NO_VALUE</option>
+					<option value="external">MOD_CUSTOM_THUMBNAILS_OPTION_EXTERNAL_VALUE</option>
+					<option value="internal">MOD_CUSTOM_THUMBNAILS_OPTION_INTERNAL_VALUE</option>
+				</field>
+				<field
+					name="urlexternal2"
+					type="url"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_EXTERNAL_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_EXTERNAL_URL_DESC"
+					showon="url2:external"
+				/>
+				<field
+					name="urlinternal2"
+					type="menuitem"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_INTERNAL_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_INTERNAL_URL_DESC"
+					showon="url2:internal"
+				/>
+				<field
+					name="show_readmore2"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_SELECTION_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_SELECTION_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url2:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field
+					name="readmore_text2"
+					type="text"
+					default=""
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_DESC"
+					showon="show_readmore2:1"
+				/>
+				<field
+					name="link_title2"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_TITLE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_TITLE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url2:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="link_image2"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_IMAGE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_IMAGE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url2:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field type="spacer" name="contentspacer3" class="text"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_SPACER3"
+					/>
+				
+				<field
+					name="title3"
+					type="text"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_TITLE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_TITLE_DESC"
+				/>
+				<field
+					name="image3"
+					type="media"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_IMAGE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_IMAGE_DESC"
+					directory=""
+				/>
+				<field
+					name="content3"
+					type="editor"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_CONTENT_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_CONTENT_DESC"
+					filter="safehtml"
+				/>
+				<field
+					name="url3"
+					type="list"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_SELECTION_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_SELECTION_URL_DESC"
+					default="no"
+					>
+					<option value="no">MOD_CUSTOM_THUMBNAILS_OPTION_NO_VALUE</option>
+					<option value="external">MOD_CUSTOM_THUMBNAILS_OPTION_EXTERNAL_VALUE</option>
+					<option value="internal">MOD_CUSTOM_THUMBNAILS_OPTION_INTERNAL_VALUE</option>
+				</field>
+				<field
+					name="urlexternal3"
+					type="url"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_EXTERNAL_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_EXTERNAL_URL_DESC"
+					showon="url3:external"
+				/>
+				<field
+					name="urlinternal3"
+					type="menuitem"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_INTERNAL_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_INTERNAL_URL_DESC"
+					showon="url3:internal"
+				/>
+				<field
+					name="show_readmore3"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_SELECTION_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_SELECTION_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url3:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field
+					name="readmore_text3"
+					type="text"
+					default=""
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_DESC"
+					showon="show_readmore3:1"
+				/>
+				<field
+					name="link_title3"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_TITLE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_TITLE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url3:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="link_image3"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_IMAGE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_IMAGE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url3:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field type="spacer" name="contentspacer4" class="text"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_SPACER4"
+					/>
+				
+				<field
+					name="title4"
+					type="text"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_TITLE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_TITLE_DESC"
+				/>
+				<field
+					name="image4"
+					type="media"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_IMAGE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_IMAGE_DESC"
+					directory=""
+				/>
+				<field
+					name="content4"
+					type="editor"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_CONTENT_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_CONTENT_DESC"
+					filter="safehtml"
+				/>
+				<field
+					name="url4"
+					type="list"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_SELECTION_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_SELECTION_URL_DESC"
+					default="no"
+					>
+					<option value="no">MOD_CUSTOM_THUMBNAILS_OPTION_NO_VALUE</option>
+					<option value="external">MOD_CUSTOM_THUMBNAILS_OPTION_EXTERNAL_VALUE</option>
+					<option value="internal">MOD_CUSTOM_THUMBNAILS_OPTION_INTERNAL_VALUE</option>
+				</field>
+				<field
+					name="urlexternal4"
+					type="url"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_EXTERNAL_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_EXTERNAL_URL_DESC"
+					showon="url4:external"
+				/>
+				<field
+					name="urlinternal4"
+					type="menuitem"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_INTERNAL_URL_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_INTERNAL_URL_DESC"
+					showon="url4:internal"
+				/>
+				<field
+					name="show_readmore4"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_SELECTION_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_SELECTION_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url4:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field
+					name="readmore_text4"
+					type="text"
+					default=""
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_DESC"
+					showon="show_readmore4:1"
+				/>
+				<field
+					name="link_title4"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_TITLE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_TITLE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url4:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="link_image4"
+					type="radio"
+					label="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_IMAGE_LABEL"
+					description="MOD_CUSTOM_THUMBNAILS_FIELD_LINK_IMAGE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="url4:external,internal"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+			
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config> 
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_custom_thumbnails.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_custom_thumbnails.ini</language>
+		<language tag="es-ES">es-ES/es-ES.mod_custom_thumbnails.sys.ini</language>
+		<language tag="es-ES">es-ES/es-ES.mod_custom_thumbnails.ini</language>
+	</languages>
+</extension>
