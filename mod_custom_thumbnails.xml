@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" method="upgrade" client="site">
 	<name>mod_custom_thumbnails</name>
-	<creationDate>Nov 2016</creationDate>
+	<creationDate>January 2023</creationDate>
 	<author>Sergio Iglesias</author>
 	<authorEmail>info@sergioiglesias.net</authorEmail>
 	<authorUrl>https://sergioiglesias.net</authorUrl>
-	<copyright>Copyright © 2016 - All rights reserved.</copyright>
+	<copyright>Copyright © 2023 - All rights reserved.</copyright>
 	<license>GNU General Public License v2.0</license>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<description>MOD__P_HTML_CONTENT_IN_BOOTSTRAP</description>
 	<files>
 		<filename module="mod_custom_thumbnails">mod_custom_thumbnails.php</filename>
 		<filename>mod_custom_thumbnails.xml</filename>
 		<filename>index.html</filename>
-		<folder>language</folder>
 		<folder>tmpl</folder>
 	</files>
 	<config>
@@ -42,6 +41,7 @@
 					<option value="1">Bootstrap 2.3.2</option>
 					<option value="2">Bootstrap 3</option>
 					<option value="3">UiKit</option>
+					<option value="5">Bootstrap 5</option>
 				</field>
 			</fieldset>
 			
@@ -427,44 +427,49 @@
 				</field>
 			</fieldset>
 			
-			<fieldset
-				name="advanced">
+			<fieldset name="advanced">
 				<field
 					name="layout"
 					type="modulelayout"
 					label="JFIELD_ALT_LAYOUT_LABEL"
-					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+					class="form-select"
+					validate="moduleLayout"
+				/>
 
 				<field
 					name="moduleclass_sfx"
-					type="textarea" rows="3"
+					type="textarea"
 					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
-					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+					rows="3"
+					validate="CssIdentifier"
+				/>
 
 				<field
 					name="cache"
 					type="list"
-					default="1"
 					label="COM_MODULES_FIELD_CACHING_LABEL"
-					description="COM_MODULES_FIELD_CACHING_DESC">
-					<option
-						value="1">JGLOBAL_USE_GLOBAL</option>
-					<option
-						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+					default="1"
+					filter="integer"
+					validate="options"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
 				</field>
 
 				<field
 					name="cache_time"
-					type="text"
-					default="900"
+					type="number"
 					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
-					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+					default="900"
+					filter="integer"
+				/>
+
 				<field
 					name="cachemode"
 					type="hidden"
-					default="static">
-					<option
-						value="static"></option>
+					default="static"
+					>
+					<option value="static"></option>
 				</field>
 			</fieldset>
 		</fields>

@@ -11,3 +11,17 @@ Custom Thumbnails Module show HTMl content in a thumbnail format. You can config
     * Select external or internal link.
     * Show or hide image and if you want it to have a link.
     * Show or hide button of "Read more" and the text of de button.
+
+* * *
+
+# Changelogs
+
+### Version 1.2.0 [2023-01-07]
+* **[Added]** Joomla 4 compatibility
+* **[Added]** Bootstrap 5 compatibility
+
+* * *
+
+## Copyright & License
+This module is licensed under GNU LESSER GENERAL PUBLIC LICENSE.
+Copyright (C) 2019 [Sergio Iglesias](https://sergioiglesias.net) - All rights reserved.
