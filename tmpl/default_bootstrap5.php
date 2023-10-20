@@ -8,6 +8,7 @@
  * @author 		Sergio Iglesias (@sergiois)
  */
 
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 
 defined('_JEXEC') or die;
@@ -70,7 +71,7 @@ switch($params->get('count'))
                 
                 <?php if($params->get('show_readmore'.$i)): ?>
                 <p class="mb-0">
-                    <a href="<?php echo $url; ?>" class="btn btn-primary"><?php echo $params->get('readmore_text'.$i) ? $params->get('readmore_text'.$i) : JText::_('MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_TEXT'); ?></a>
+                    <a href="<?php echo $url; ?>" class="btn btn-primary"><?php echo $params->get('readmore_text'.$i) ? $params->get('readmore_text'.$i) : Text::_('MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_TEXT'); ?></a>
                 </p>
                 <?php endif; ?>
             </div>

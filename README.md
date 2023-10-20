@@ -20,6 +20,9 @@ Custom Thumbnails Module show HTMl content in a thumbnail format. You can config
 * **[Added]** Joomla 4 compatibility
 * **[Added]** Bootstrap 5 compatibility
 
+### Version 1.2.1 [2023-10-20]
+* **[Changed]** Minimal changes to adapt to Joomla 5
+
 * * *
 
 ## Copyright & License

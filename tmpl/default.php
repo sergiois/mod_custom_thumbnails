@@ -7,7 +7,9 @@
  * @license		GNU General Public License v2.0
  * @author 		Sergio Iglesias (@sergiois)
  */
- 
+
+use Joomla\CMS\Language\Text;
+
 defined('_JEXEC') or die;
 $span = 4;
 switch($params->get('count'))
@@ -65,7 +67,7 @@ switch($params->get('count'))
             
             <?php if($params->get('show_readmore'.$i)): ?>
             <p class="text-right">
-                <a href="<?php echo $url; ?>" class="btn btn-primary"><?php echo $params->get('readmore_text'.$i) ? $params->get('readmore_text'.$i) : JText::_('MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_TEXT'); ?></a>
+                <a href="<?php echo $url; ?>" class="btn btn-primary"><?php echo $params->get('readmore_text'.$i) ? $params->get('readmore_text'.$i) : Text::_('MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_TEXT'); ?></a>
             </p>
             <?php endif; ?>
         </div>

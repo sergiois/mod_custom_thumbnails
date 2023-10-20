@@ -7,7 +7,10 @@
  * @license		GNU General Public License v2.0
  * @author 		Sergio Iglesias (@sergiois)
  */
- 
+
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
+
 defined('_JEXEC') or die;
 
 $spanmd = 3;
@@ -29,7 +32,7 @@ switch($params->get('count'))
             if($params->get('url'.$i) != 'no'):
                 $url = $params->get('urlexternal'.$i);
                 if($params->get('url'.$i) == 'internal'):
-                    $url = JRoute::_('index.php?Itemid='.$params->get('urlinternal'.$i));
+                    $url = Route::_('index.php?Itemid='.$params->get('urlinternal'.$i));
                 endif;
             endif;
             ?>
@@ -68,7 +71,7 @@ switch($params->get('count'))
                 
                 <?php if($params->get('show_readmore'.$i)): ?>
                 <p class="uk-text-right">
-                    <a href="<?php echo $url; ?>" class="uk-button uk-button-primary"><?php echo $params->get('readmore_text'.$i) ? $params->get('readmore_text'.$i) : JText::_('MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_TEXT'); ?></a>
+                    <a href="<?php echo $url; ?>" class="uk-button uk-button-primary"><?php echo $params->get('readmore_text'.$i) ? $params->get('readmore_text'.$i) : Text::_('MOD_CUSTOM_THUMBNAILS_FIELD_READMORE_TEXT'); ?></a>
                 </p>
                 <?php endif; ?>
             </div>
